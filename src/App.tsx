@@ -3,6 +3,9 @@ import Header from './components/Header'
 import Produtos from './containers/Produtos'
 
 import { GlobalStyle } from './styles'
+import { Provider } from 'react-redux'
+
+import { store } from './store'
 
 export type Produto = {
   id: number
@@ -13,7 +16,7 @@ export type Produto = {
 
 function App() {
   const [produtos, setProdutos] = useState<Produto[]>([])
-  const [carrinho, setCarrinho] = useState<Produto[]>([])
+  //1-podemos apagar o carrinho do useState pq agora temos um reducer para ele
   const [favoritos, setFavoritos] = useState<Produto[]>([])
 
   useEffect(() => {
@@ -32,10 +35,12 @@ function App() {
   }
 
   return (
-    <>
+    //2-importando o Provider ele se torna o container de toda a aplicação so assim temos acesso ao estado recebendo a store
+    //3-é necessario importar a store para o provider receber corretamente o estado
+    <Provider store={store}>
       <GlobalStyle />
       <div className="container">
-        <Header favoritos={favoritos} itensNoCarrinho={carrinho} />
+        <Header favoritos={favoritos} />
         <Produtos
           produtos={produtos}
           favoritos={favoritos}
@@ -43,7 +48,7 @@ function App() {
           adicionarAoCarrinho={adicionarAoCarrinho}
         />
       </div>
-    </>
+    </Provider>
   )
 }
 
