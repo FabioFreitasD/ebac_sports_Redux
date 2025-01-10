@@ -34,10 +34,7 @@ function App() {
     }
   }
 
-  //5-para corrigir o erro vamos colocar uma função qualquer
-  const adicionarAoCarrinho = () => {
-    console.log('teste')
-  }
+  //5-para corrigir o erro vamos colocar uma função qualquer apos verificar podemos limpar e o adicionar ao carrinho...
 
   return (
     //2-importando o Provider ele se torna o container de toda a aplicação so assim temos acesso ao estado recebendo a store
@@ -51,7 +48,6 @@ function App() {
           produtos={produtos}
           favoritos={favoritos}
           favoritar={favoritar}
-          adicionarAoCarrinho={adicionarAoCarrinho}
         />
       </div>
     </Provider>
