@@ -15,7 +15,7 @@ const initialState: CarrinhoState = {
 const carrinhoSlice = createSlice({
   name: 'carrinho',
   initialState, // 2- O reducer precisa receber um estado inicial que vai ser os itens que vão ser adicionados no carrinho (foi transferido para o passo 7)
-  // 3- No reducers deve ser escrita toda a parte de mudança do estado
+  // 3- No reducers deve ser escrita toda a parte de mudança do estado nafa mais é que uma função que recebe o estado inicial e uma action
   reducers: {
     // 4- A função adicionar ao carrinho vai receber o estado inicial, uma ação e depois o PayloadAction que terá dentro de si o produto adicionado
     adicionar: (state, action: PayloadAction<Produto>) => {

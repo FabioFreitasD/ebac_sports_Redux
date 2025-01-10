@@ -37,6 +37,7 @@ function App() {
   return (
     //2-importando o Provider ele se torna o container de toda a aplicação so assim temos acesso ao estado recebendo a store
     //3-é necessario importar a store para o provider receber corretamente o estado
+    //4-foi retirado o itensNoCarrinho do Header pq não precisamos mais do useState
     <Provider store={store}>
       <GlobalStyle />
       <div className="container">

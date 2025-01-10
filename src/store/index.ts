@@ -1,6 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 
+import carrinhoReducer from './reducers/carrinho'
+
 //1-precisamos fazer uma função de configuração que recebe um objeto reducer
-const store = configureStore({
-  reducer: {}
+//3-para fazer o consumo de toda nossa store alocando os reducers corretamente precisamos exportar a store
+export const store = configureStore({
+  reducer: {
+    carrinho: carrinhoReducer //2-depois de configurar o slice do carrinho agora podemos importar na store e passar esse objeto para nosso rootReducer global da store que vai ser o centralizador de todos os nossos reducers
+  }
 })
