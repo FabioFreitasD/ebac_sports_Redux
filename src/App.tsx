@@ -34,6 +34,11 @@ function App() {
     }
   }
 
+  //5-para corrigir o erro vamos colocar uma função qualquer
+  const adicionarAoCarrinho = () => {
+    console.log('teste')
+  }
+
   return (
     //2-importando o Provider ele se torna o container de toda a aplicação so assim temos acesso ao estado recebendo a store
     //3-é necessario importar a store para o provider receber corretamente o estado
