@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Header from './components/Header'
 import Produtos from './containers/Produtos'
 
@@ -15,15 +15,9 @@ export type Produto = {
 }
 
 function App() {
-  const [produtos, setProdutos] = useState<Produto[]>([])
+  c
   //1-podemos apagar o carrinho do useState pq agora temos um reducer para ele
   const [favoritos, setFavoritos] = useState<Produto[]>([])
-
-  useEffect(() => {
-    fetch('https://fake-api-tau.vercel.app/api/ebac_sports')
-      .then((res) => res.json())
-      .then((res) => setProdutos(res))
-  }, [])
 
   function favoritar(produto: Produto) {
     if (favoritos.find((p) => p.id === produto.id)) {
