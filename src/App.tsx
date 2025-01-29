@@ -15,7 +15,6 @@ export type Produto = {
 }
 
 function App() {
-  c
   //1-podemos apagar o carrinho do useState pq agora temos um reducer para ele
   const [favoritos, setFavoritos] = useState<Produto[]>([])
 
@@ -38,11 +37,7 @@ function App() {
       <GlobalStyle />
       <div className="container">
         <Header favoritos={favoritos} />
-        <Produtos
-          produtos={produtos}
-          favoritos={favoritos}
-          favoritar={favoritar}
-        />
+        <Produtos favoritos={favoritos} favoritar={favoritar} />
       </div>
     </Provider>
   )
