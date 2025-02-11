@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import Header from './components/Header'
 import Produtos from './containers/Produtos'
 
@@ -8,7 +7,7 @@ import { Provider } from 'react-redux'
 import { store } from './store'
 
 export type Produto = {
-  id: number
+  id: number | string
   nome: string
   preco: number
   imagem: string
@@ -16,16 +15,6 @@ export type Produto = {
 
 function App() {
   //1-podemos apagar o carrinho do useState pq agora temos um reducer para ele
-  const [favoritos, setFavoritos] = useState<Produto[]>([])
-
-  function favoritar(produto: Produto) {
-    if (favoritos.find((p) => p.id === produto.id)) {
-      const favoritosSemProduto = favoritos.filter((p) => p.id !== produto.id)
-      setFavoritos(favoritosSemProduto)
-    } else {
-      setFavoritos([...favoritos, produto])
-    }
-  }
 
   //5-para corrigir o erro vamos colocar uma função qualquer apos verificar podemos limpar e o adicionar ao carrinho...
 
@@ -36,8 +25,8 @@ function App() {
     <Provider store={store}>
       <GlobalStyle />
       <div className="container">
-        <Header favoritos={favoritos} />
-        <Produtos favoritos={favoritos} favoritar={favoritar} />
+        <Header />
+        <Produtos />
       </div>
     </Provider>
   )
